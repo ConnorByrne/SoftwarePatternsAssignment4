@@ -32,4 +32,19 @@ public class ProductService {
 	public List<Product> search(String keyword){
 		return repo.search(keyword);
 	}
+
+	public Customer customerExists(String name, String password) {
+		try {
+			List<Customer> result = repo.findCustomer(name);
+			Customer customer = result.get(0);
+			if(password.equals(customer.getPassword())) {
+				return customer;
+			}
+			else {
+				return null;
+			}
+		}catch(Exception e) {
+			return null;
+		}
+	}
 }

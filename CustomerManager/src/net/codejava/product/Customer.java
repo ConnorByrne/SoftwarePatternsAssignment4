@@ -12,20 +12,23 @@ public class Customer {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	private String name, email, address;
+	private String name, password, address, payMethod;
 	
-	
-
 	public Customer() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	public Customer(String name, String email, String address) {
-		super();
+	
+	public Customer(String name) {
 		this.name = name;
-		this.email = email;
-		this.address = address;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -36,12 +39,12 @@ public class Customer {
 		this.name = name;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getAddress() {
@@ -52,15 +55,14 @@ public class Customer {
 		this.address = address;
 	}
 
-	public Long getId() {
-		return id;
+	public String getPayMethod() {
+		return payMethod;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setPayMethod(String payMethod) {
+		this.payMethod = payMethod;
 	}
-	
-	
-	
+
+		
 
 }

@@ -12,4 +12,7 @@ public interface ProductRepository extends CrudRepository<Product,Long> {
 	            + " OR c.category LIKE '%' || :keyword || '%'"
 	            + " OR c.manufacturer LIKE '%' || :keyword || '%'")
 	public List<Product> search(@Param("keyword") String keyword);
+	  
+	  @Query(value = "SELECT c FROM Customer c WHERE c.name LIKE '%' || :keyword || '%'")
+	public List<Customer> findCustomer(@Param("keyword") String keyword);
 }

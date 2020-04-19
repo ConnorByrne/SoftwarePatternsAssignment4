@@ -10,6 +10,7 @@
 <body>
 <div align="center">
 	<h1>Product Manager</h1>
+	<h2>Welcome ${customer.name}</h2>
 	<form method="get" action="search">
 		<input type="text" name = "keyword"/>
 		<input type="submit" value="search"/>
