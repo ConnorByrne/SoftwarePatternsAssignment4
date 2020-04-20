@@ -15,7 +15,7 @@
 		<input type="text" name = "keyword"/>
 		<input type="submit" value="search"/>
 	</form>
-	<h3><a href="new">New Product</a></h3>
+	<h3><a href="newAccount">New Product</a></h3>
 	<table border = "1">
 		<tr>
 			<th>Title</th>

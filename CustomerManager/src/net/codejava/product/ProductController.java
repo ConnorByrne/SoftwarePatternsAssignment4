@@ -54,11 +54,24 @@ public class ProductController {
 		return"new_product";
 	}
 	
-	@RequestMapping(value="/save",method=RequestMethod.POST)
+	@RequestMapping("/createAccount")
+	public String newAccountForm(Map<String,Object> model) {
+		model.put("customer", new Customer());
+		return"new_account";
+	}
+	
+	@RequestMapping(value="/saveProduct",method=RequestMethod.POST)
 	public String saveProduct(@ModelAttribute("product") Product product) {
 		service.save(product);
 		return "redirect:/";
 	}
+	
+	@RequestMapping(value="/saveAccount",method=RequestMethod.POST)
+	public String saveAccount(@ModelAttribute("customer") Customer customer) {
+		service.save(customer);
+		return "redirect:/";
+	}
+	
 	
 	@RequestMapping("/edit")
 	public ModelAndView editProductForm(@RequestParam Long id) {

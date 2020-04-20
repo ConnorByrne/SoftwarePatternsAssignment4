@@ -29,7 +29,7 @@
 				<td><form:input path="price"/></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type=submit value="save"/></td>
+				<td colspan="2"><input type=submit value="saveProduct"/></td>
 			</tr>
 		</table>
 	</form:form>

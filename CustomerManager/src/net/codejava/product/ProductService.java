@@ -9,33 +9,36 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProductService {
 	@Autowired
-	private ProductRepository repo;
+	private ProductRepository productRepo;
+	
+	@Autowired
+	private CustomerRepository customerRepo;
 	
 	public List<Product> listAll(){
-		return (List<Product>) repo.findAll();
+		return (List<Product>) productRepo.findAll();
 	}
 
 	public void save(Product product) {
 		// TODO Auto-generated method stub
-		repo.save(product);
+		productRepo.save(product);
 	}
 	
 	public Product get(Long id) {
-		Optional<Product> result=repo.findById(id);
+		Optional<Product> result=productRepo.findById(id);
 		return result.get();
 	}
 	
 	public void delete(long id) {
-		repo.deleteById(id);
+		productRepo.deleteById(id);
 	}
 	
 	public List<Product> search(String keyword){
-		return repo.search(keyword);
+		return productRepo.search(keyword);
 	}
 
 	public Customer customerExists(String name, String password) {
 		try {
-			List<Customer> result = repo.findCustomer(name);
+			List<Customer> result = customerRepo.findCustomer(name);
 			Customer customer = result.get(0);
 			if(password.equals(customer.getPassword())) {
 				return customer;
@@ -46,5 +49,10 @@ public class ProductService {
 		}catch(Exception e) {
 			return null;
 		}
+	}
+
+	public void save(Customer customer) {
+		// TODO Auto-generated method stub
+		customerRepo.save(customer);
 	}
 }
