@@ -55,6 +55,14 @@ public class ProductController {
 		
 	}
 	
+	@RequestMapping("/logout")
+	public ModelAndView logout() {
+		this.currentUser=null;
+		this.admin=null;
+		ModelAndView mav = new ModelAndView("login");
+		return mav;
+	}
+	
 	@RequestMapping("/adminIndex")
 	public ModelAndView adminIndex(@RequestParam String userName, @RequestParam String password) {
 		ModelAndView mav;
