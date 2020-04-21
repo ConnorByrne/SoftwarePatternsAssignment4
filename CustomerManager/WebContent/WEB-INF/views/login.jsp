@@ -6,6 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Login Page</title>
+<link href = "webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <form name="loginForm" method="get" action="login">
@@ -17,10 +18,13 @@
 	</p>
 	<p>
 		<input class="btn" type="submit" value="login"/> <a href="createAccount" class="btn btn-success">Create Account</a>
+		<a href="adminLogin" class="btn btn-success">Admin Login</a>
 	</p>
 </form>
 
 <p>${message}</p>
 
+	<script src="webjars.jquery/1.9.1/jquery.min.js"></script>
+	<script src="webjars.bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
 </html>

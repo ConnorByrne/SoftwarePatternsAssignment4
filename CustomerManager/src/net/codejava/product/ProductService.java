@@ -52,7 +52,21 @@ public class ProductService {
 	}
 
 	public void save(Customer customer) {
-		// TODO Auto-generated method stub
 		customerRepo.save(customer);
+	}
+
+	public Admin adminExists(String userName, String password) {
+		try {
+			List<Admin> result = customerRepo.findAdmin(userName);
+			Admin admin = result.get(0);
+			if(password.equals(admin.getPassword())) {
+				return admin;
+			}
+			else {
+				return null;
+			}
+		}catch(Exception e) {
+			return null;
+		}
 	}
 }

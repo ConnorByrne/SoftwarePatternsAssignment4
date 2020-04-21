@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -22,6 +21,7 @@ public class ProductController {
 	private ProductService service;
 	
 	Customer currentUser= new Customer("New User");
+	Admin admin = new Admin("Admin");
 	
 	@RequestMapping("/")
 	public ModelAndView home() {
@@ -43,6 +43,31 @@ public class ProductController {
 		}
 		else {
 			mav = new ModelAndView("login");
+			mav.addObject("message", "You have entered the wrong username or password");
+		}
+		return mav;
+	}
+	
+	@RequestMapping("/adminLogin")
+	public ModelAndView adminLogin() {
+		ModelAndView mav = new ModelAndView("admin_login");
+		return mav;
+		
+	}
+	
+	@RequestMapping("/adminIndex")
+	public ModelAndView adminIndex(@RequestParam String userName, @RequestParam String password) {
+		ModelAndView mav;
+		Admin a1 =service.adminExists(userName, password);
+		if(a1!=null) {
+			 mav = new ModelAndView("admin_index");
+			 List<Product> listProduct = service.listAll();
+			 mav.addObject("listProduct", listProduct);
+			 this.admin=a1;
+			 mav.addObject("admin", admin);
+		}
+		else {
+			mav = new ModelAndView("admin_login");
 			mav.addObject("message", "You have entered the wrong username or password");
 		}
 		return mav;

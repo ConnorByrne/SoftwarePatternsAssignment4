@@ -6,6 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>New Product</title>
+<link href = "webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div align="center">
@@ -19,16 +20,20 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Name</td>
-				<td><form:input path="name"/></td>
+				<td>Title</td>
+				<td><form:input path="title"/></td>
 			</tr>
 			<tr>
-				<td>E-mail</td>
-				<td><form:input path="email"/></td>
+				<td>Manufacturer</td>
+				<td><form:input path="manufacturer"/></td>
 			</tr>
 			<tr>
-				<td>Address</td>
-				<td><form:input path="address"/></td>
+				<td>Category</td>
+				<td><form:input path="category"/></td>
+			</tr>
+			<tr>
+				<td>Price</td>
+				<td><form:input path="price"/></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type=submit value="save"/></td>
@@ -37,5 +42,7 @@
 	</form:form>
 </div>
 
+	<script src="webjars.jquery/1.9.1/jquery.min.js"></script>
+	<script src="webjars.bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
 </html>

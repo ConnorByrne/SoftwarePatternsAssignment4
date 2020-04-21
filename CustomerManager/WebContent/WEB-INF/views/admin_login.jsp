@@ -5,29 +5,25 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Search Result</title>
+<title>Admin Login Page</title>
 <link href = "webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<div align="center">
-	<h1>Search Result</h1>
-	<table border = "1">
-		<tr>
-			<th>Title</th>
-			<th>Manufacturer</th>
-			<th>Category</th>
-			<th>Price</th>
-		</tr>
-		<c:forEach items="${result}" var="product"> 
-			<tr>
-				<td>${product.title}</td>
-				<td>${product.manufacturer}</td>
-				<td>${product.category}</td>
-				<td>${product.price}</td>
-			</tr>
-		</c:forEach>
-	</table>
-</div>
+<form name="loginForm" method="get" action="adminIndex">
+	<p>
+		User Name: <input type="text" name = "userName"/>
+	</p>
+	<p>
+		Password: <input type="text" name = "password"/>
+	</p>
+	<p>
+		<input class="btn" type="submit" value="login"/> 
+		
+	</p>
+</form>
+
+<p>${message}</p>
+
 	<script src="webjars.jquery/1.9.1/jquery.min.js"></script>
 	<script src="webjars.bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>

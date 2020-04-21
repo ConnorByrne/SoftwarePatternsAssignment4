@@ -6,6 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link href = "webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div align="center">
@@ -35,5 +36,7 @@
 	</form:form>
 </div>
 
+	<script src="webjars.jquery/1.9.1/jquery.min.js"></script>
+	<script src="webjars.bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
 </html>

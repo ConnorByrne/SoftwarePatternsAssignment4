@@ -11,7 +11,7 @@
 <body>
 <div align="center">
 	<h1>Product Manager</h1>
-	<h2>Welcome ${customer.name}</h2>
+	<h2>Welcome ${admin.userName}</h2>
 	<form method="get" action="search">
 		<input type="text" name = "keyword"/>
 		<input type="submit" value="search"/>
@@ -23,13 +23,15 @@
 			<th>Category</th>
 			<th>Manufacturer</th>
 			<th>Price</th>
+			<th>Action</th>
 		</tr>
 		<c:forEach items="${listProduct}" var="product"> 
 			<tr>
 				<td>${product.title}</td>
-				<td>${product.manufacturer}</td>
 				<td>${product.category}</td>
+				<td>${product.manufacturer}</td>
 				<td>${product.price}</td>
+				<td><a href="/edit?id=${product.id}"> Edit</a>&nbsp;&nbsp;<a href="/delete?id=${product.id}">Delete</a></td>
 			
 			</tr>
 		</c:forEach>
