@@ -12,7 +12,8 @@ public class Product {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	String title, manufacturer, category, image;
-	double price;
+	private double price;
+	private int stockLevel;
 	
 	public Product() {
 		super();
@@ -66,6 +67,16 @@ public class Product {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+	public int getStockLevel() {
+		return stockLevel;
+	}
+
+	public void setStockLevel(int stockLevel) {
+		this.stockLevel = stockLevel;
+	}
+	
+	
 	
 	
 	

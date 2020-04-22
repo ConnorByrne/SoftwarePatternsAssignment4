@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Login Page</title>
+<title>Checkout</title>
 <link href = "webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
  <style>
   .affix {
@@ -44,20 +44,32 @@
   </div>
 </nav>
 <div align="center" class="container">
-<form name="loginForm" method="get" action="login">
-	<p>
-		User Name: <input type="text" name = "userName"/>
-	</p>
-	<p>
-		Password: <input type="text" name = "password"/>
-	</p>
-	<p>
-		<input class="btn btn-primary" type="submit" value="login"/> <a href="createAccount" class="btn btn-success">Create Account</a>
-		<a href="adminLogin" class="btn btn-success">Admin Login</a>
-	</p>
-</form>
-
-<p>${message}</p>
+	<h1>Welcome ${customer.name}'s Cart</h1>
+	<form method="get" action="search">
+		<input type="text" name = "keyword"/>
+		<input type="submit" value="search"/>
+	</form>
+	<h3><a href="newAccount">${customer.name}'s Cart</a></h3>
+	<table class = "table table-striped table-bordered">
+		<tr>
+			<th>Title</th>
+			<th>Category</th>
+			<th>Manufacturer</th>
+			<th>Price</th>
+			<th>Quantity</th>
+		</tr>
+	
+		<c:forEach items="${listProduct}" var="product"> 
+			<tr>
+				<td>${product.title}</td>
+				<td>${product.manufacturer}</td>
+				<td>${product.category}</td>
+				<td>${product.price}</td>
+				<td><input type="number" min="0" max="${product.stockLevel}" step="1" value="1"></td>
+			</tr>
+		</c:forEach>
+	</table>
+	<h2><a href="/purchase" class="btn btn-success">Complete Purchase</a></h2>
 </div>
 	<script src="webjars.jquery/1.9.1/jquery.min.js"></script>
 	<script src="webjars.bootstrap/3.3.6/js/bootstrap.min.js"></script>

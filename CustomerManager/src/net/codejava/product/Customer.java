@@ -71,6 +71,20 @@ public class Customer {
 	public void setPayMethod(String payMethod) {
 		this.payMethod = payMethod;
 	}
+	
+	public void addToCart(Product product) {
+		this.cart.add(product);
+	}
+
+	public List<Product> getCart() {
+		return cart;
+	}
+
+	public void setCart(List<Product> cart) {
+		this.cart = cart;
+	}
+	
+	
 
 		
 

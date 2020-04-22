@@ -23,10 +23,10 @@
 <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/CustomerManager/login">Customer Manager</a>
+      <a class="navbar-brand" href="/CustomerManager/login?userName=${customer.name}&password=${customer.password}">Customer Manager</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="/CustomerManager/login">Home<span class="glyphicon glyphicon-home"></span></a></li>
+      <li class="active"><a href="/CustomerManager/login?userName=${customer.name}&password=${customer.password}">Home<span class="glyphicon glyphicon-home"></span></a></li>
       <li><a href="/CustomerManager/">Customer Login<span class="glyphicon glyphicon-book"></span></a></li>
       <li><a href="/CustomerManager/adminLogin">Admin Login<span class="glyphicon glyphicon-tower"></span></a></li>
     </ul>
@@ -37,8 +37,9 @@
       	</div>
       	<button type="submit" value="search" class="btn btn-default"><div class="glyphicon glyphicon-search"></div></button>
     	</form></li>
-    	<li><a href="/CustomerManager/createAccount"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
-    	<li><a href="/CustomerManager/logout"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
+    	<li><a href="/CustomerManager/checkout"><span class="btn btn-success glyphicon glyphicon-shopping-cart"></span>Checkout</a></li>
+    	<li><a href="/CustomerManager/createAccount"><span class="btn btn-success glyphicon glyphicon-user"></span>Sign Up</a></li>
+    	<li><a href="/CustomerManager/logout"><span class=" btn btn-primary glyphicon glyphicon-log-in"></span>Logout</a></li>
     </ul>
   </div>
 </nav>
@@ -67,6 +68,10 @@
 			<tr>
 				<td>Price</td>
 				<td><form:input path="price"/></td>
+			</tr>
+			<tr>
+				<td>Stock Level</td>
+				<td><form:input path="stockLevel"/></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type=submit value="save"/></td>

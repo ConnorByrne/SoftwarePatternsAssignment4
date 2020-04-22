@@ -1,5 +1,6 @@
 package net.codejava.product;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import java.util.Map;
@@ -51,6 +52,8 @@ public class ProductController {
 	@RequestMapping("/adminLogin")
 	public ModelAndView adminLogin() {
 		ModelAndView mav = new ModelAndView("admin_login");
+
+		 mav.addObject("customer", currentUser);
 		return mav;
 		
 	}
@@ -60,6 +63,7 @@ public class ProductController {
 		this.currentUser=null;
 		this.admin=null;
 		ModelAndView mav = new ModelAndView("login");
+		mav.addObject("customer", currentUser);
 		return mav;
 	}
 	
@@ -73,9 +77,11 @@ public class ProductController {
 			 mav.addObject("listProduct", listProduct);
 			 this.admin=a1;
 			 mav.addObject("admin", admin);
+			 mav.addObject("customer", currentUser);
 		}
 		else {
 			mav = new ModelAndView("admin_login");
+			mav.addObject("customer", currentUser);
 			mav.addObject("message", "You have entered the wrong username or password");
 		}
 		return mav;
@@ -111,11 +117,12 @@ public class ProductController {
 		ModelAndView mav = new ModelAndView("edit_product");
 		Product product = service.get(id);
 		mav.addObject("product",product);
+		mav.addObject("customer", currentUser);
 		return mav;
 	}
 	
 	@RequestMapping("/delete")
-	public String deleteProductForm(@RequestParam long id) {
+	public String deleteProductForm(@RequestParam Long id) {
 	    service.delete(id);
 	    return "redirect:/";       
 	}
@@ -125,8 +132,35 @@ public class ProductController {
 		ModelAndView mav = new ModelAndView("search");
 		List<Product> result = service.search(keyword);
 		mav.addObject("result",result);
+		mav.addObject("customer",this.currentUser);
 		return mav;
 	}
+	
+	@RequestMapping("/addToCart")
+	public ModelAndView addToCart(@RequestParam Long id) {
+		ModelAndView mav = new ModelAndView("index");
+		mav.addObject("customer",this.currentUser);
+		this.currentUser.addToCart(service.get(id));
+		return mav;
+	}
+	
+	@RequestMapping("/checkout")
+	public ModelAndView checkout() {
+		ModelAndView mav = new ModelAndView("checkout");
+		mav.addObject("customer",this.currentUser);
+		mav.addObject("listProduct",this.currentUser.getCart());
+		return mav;
+	}
+	
+	@RequestMapping("/purchase")
+	public ModelAndView purchase() {
+		ModelAndView mav = new ModelAndView("index");
+		this.currentUser.setCart(new ArrayList<Product>());
+		mav.addObject("customer",this.currentUser);
+		return mav;
+	}
+		
+	
 	
 
 }
