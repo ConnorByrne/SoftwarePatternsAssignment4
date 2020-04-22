@@ -49,7 +49,7 @@
 		<input type="text" name = "keyword"/>
 		<input type="submit" value="search"/>
 	</form>
-	<h3><a href="newAccount">${customer.name}'s Cart</a></h3>
+	<h3>${customer.name}'s Cart</h3>
 	<table class = "table table-striped table-bordered">
 		<tr>
 			<th>Image</th>

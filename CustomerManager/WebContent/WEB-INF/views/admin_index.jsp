@@ -50,7 +50,7 @@
 		<input type="text" name = "keyword"/>
 		<input type="submit" value="search"/>
 	</form>
-	<h3><a href="new" class="btn-success">New Product</a></h3>
+	<h2><a href="new" class="btn btn-success">New Product</a></h2>
 	<table class = "table table-striped table-bordered">
 		<tr>
 			<th>Image</th>

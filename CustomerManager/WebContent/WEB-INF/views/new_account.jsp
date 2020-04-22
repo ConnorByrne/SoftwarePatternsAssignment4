@@ -44,7 +44,7 @@
   </div>
 </nav>
 <div align="center" class="container">
-	<h2>New Product</h2>
+	<h2>New Account</h2>
 	<form:form action="saveAccount" method="post" modelAttribute="customer">
 		<table class = "table table-striped table-bordered">
 			<tr>
