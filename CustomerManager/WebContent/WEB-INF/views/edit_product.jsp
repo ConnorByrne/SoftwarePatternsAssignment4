@@ -54,6 +54,10 @@
 				</td>
 			</tr>
 			<tr>
+				<td>Image</td>
+				<td><form:input path="image"/></td>
+			</tr>
+			<tr>
 				<td>Title</td>
 				<td><form:input path="title"/></td>
 			</tr>

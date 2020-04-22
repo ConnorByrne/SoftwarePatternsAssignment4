@@ -52,6 +52,7 @@
 	</form>
 	<table class = "table table-striped table-bordered">
 		<tr>
+			<th>Image</th>
 			<th>Title</th>
 			<th>Category</th>
 			<th>Manufacturer</th>
@@ -60,6 +61,7 @@
 		</tr>
 		<c:forEach items="${listProduct}" var="product"> 
 			<tr>
+				<td><img src="${product.image}" class="img img-circle" alt="Cinque Terre"  height="60" width="60"></td>
 				<td>${product.title}</td>
 				<td>${product.manufacturer}</td>
 				<td>${product.category}</td>
